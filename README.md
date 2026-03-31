@@ -1,2 +1,2 @@
 # biznis-sajt
-Unlock the Essence biznis mini sajt – ulazni SEO sistem za poslovni uvid
+Unlock the Essence biznis sajt – ulazni sistem za poslovni uvid
