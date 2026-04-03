@@ -1,14 +1,18 @@
 :root {
   --bg: #f6f3ee;
   --surface: #ffffff;
+  --surface-soft: #fbf8f3;
   --text: #1f1f1c;
   --muted: #6e6a63;
   --line: #d9d1c7;
+  --line-soft: #e7e0d7;
   --accent: #2f3a32;
   --accent-hover: #243029;
   --max-width: 760px;
   --radius: 18px;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  --radius-large: 26px;
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.035);
+  --shadow-hero: 0 16px 40px rgba(0, 0, 0, 0.045);
 }
 
 * {
@@ -23,9 +27,9 @@ html {
 body {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
-  background: var(--bg);
+  background: linear-gradient(to bottom, #f7f4ef 0%, #f3eee7 100%);
   color: var(--text);
-  line-height: 1.75;
+  line-height: 1.78;
 }
 
 main {
@@ -35,37 +39,49 @@ main {
 .container {
   width: min(100% - 32px, var(--max-width));
   margin: 0 auto;
-  padding: 48px 0 72px;
+  padding: 56px 0 88px;
 }
+
+/* OSNOVNI BLOKOVI */
 
 .hero,
 .section,
 .ctaBlock {
-  background: var(--surface);
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-soft);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
 }
 
 .hero {
-  padding: 40px 28px;
-  margin-bottom: 24px;
+  background: var(--surface-soft);
+  padding: 52px 34px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow-hero);
+  border-radius: var(--radius-large);
 }
 
 .section {
-  padding: 28px;
-  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(2px);
+  padding: 26px 28px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow-soft);
 }
 
 .ctaBlock {
-  padding: 36px 28px;
-  text-align: left;
+  background: var(--surface);
+  padding: 34px 28px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-hero);
+  border-color: #cfc6bb;
 }
 
+/* TEKST */
+
 .eyebrow {
-  margin: 0 0 10px;
-  font-size: 0.92rem;
-  letter-spacing: 0.08em;
+  margin: 0 0 12px;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -75,26 +91,42 @@ h2 {
   margin-top: 0;
   color: var(--text);
   font-weight: 500;
-  line-height: 1.25;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
 h1 {
-  margin-bottom: 20px;
-  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 24px;
+  font-size: clamp(2.2rem, 4.2vw, 3.35rem);
+  max-width: 12ch;
 }
 
 h2 {
   margin-bottom: 16px;
-  font-size: 1.45rem;
+  font-size: 1.35rem;
 }
 
 p {
   margin: 0 0 16px;
+  font-size: 1.03rem;
 }
 
 p:last-child {
   margin-bottom: 0;
 }
+
+.hero p {
+  font-size: 1.08rem;
+}
+
+.transition {
+  margin-top: 28px;
+  margin-bottom: 14px;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+/* KARTICE */
 
 .card {
   padding: 0;
@@ -112,22 +144,27 @@ p:last-child {
   border-bottom: none;
 }
 
+/* DUGME */
+
 .button {
   display: inline-block;
-  margin-top: 12px;
-  padding: 14px 22px;
+  margin-top: 14px;
+  padding: 14px 24px;
   border-radius: 999px;
   background: var(--accent);
   color: #ffffff;
   text-decoration: none;
-  font-size: 0.98rem;
-  transition: background 0.2s ease, transform 0.2s ease;
+  font-size: 0.97rem;
+  line-height: 1;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 24px rgba(47, 58, 50, 0.16);
 }
 
 .button:hover,
 .button:focus {
   background: var(--accent-hover);
   transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(47, 58, 50, 0.2);
 }
 
 .button:focus-visible {
@@ -139,10 +176,22 @@ a {
   color: inherit;
 }
 
+/* SITNI POPRAVCI ZA RITAM */
+
+.section + .section {
+  margin-top: 0;
+}
+
+.hero + .section {
+  margin-top: 0;
+}
+
+/* MOBILNI */
+
 @media (max-width: 640px) {
   .container {
     width: min(100% - 20px, var(--max-width));
-    padding: 24px 0 48px;
+    padding: 28px 0 56px;
   }
 
   .hero,
@@ -153,8 +202,9 @@ a {
   }
 
   .hero {
-    padding-top: 28px;
-    padding-bottom: 28px;
+    padding-top: 34px;
+    padding-bottom: 34px;
+    border-radius: 22px;
   }
 
   .section,
@@ -163,7 +213,24 @@ a {
     padding-bottom: 22px;
   }
 
+  h1 {
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
+    max-width: none;
+  }
+
   h2 {
-    font-size: 1.28rem;
+    font-size: 1.2rem;
+  }
+
+  p,
+  .hero p,
+  .transition {
+    font-size: 1rem;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+    padding: 15px 18px;
   }
 }
