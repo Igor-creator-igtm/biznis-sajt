@@ -96,6 +96,13 @@ p:last-child {
   margin-bottom: 0;
 }
 
+.transition {
+  margin-top: 8px;
+  margin-bottom: 18px;
+  color: var(--text);
+  font-style: italic;
+}
+
 .card {
   padding: 0;
 }
@@ -137,6 +144,16 @@ p:last-child {
 
 a {
   color: inherit;
+}
+
+.section a:not(.button) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.section a:not(.button):hover,
+.section a:not(.button):focus {
+  opacity: 0.78;
 }
 
 @media (max-width: 640px) {
