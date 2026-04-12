@@ -8,7 +8,7 @@
   --accent-hover: #243029;
   --max-width: 760px;
   --radius: 18px;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.035);
 }
 
 * {
@@ -80,7 +80,7 @@ h2 {
 
 h1 {
   margin-bottom: 20px;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.9rem, 3.5vw, 2.6rem);
 }
 
 h2 {
@@ -123,7 +123,7 @@ p:last-child {
   display: inline-block;
   margin-top: 12px;
   padding: 14px 22px;
-  border-radius: 999px;
+  border-radius: 12px;
   background: var(--accent);
   color: #ffffff;
   text-decoration: none;
@@ -154,6 +154,11 @@ a {
 .section a:not(.button):hover,
 .section a:not(.button):focus {
   opacity: 0.78;
+}
+
+.section:last-of-type {
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 @media (max-width: 640px) {
