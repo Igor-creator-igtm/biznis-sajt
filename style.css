@@ -189,3 +189,32 @@ a {
     font-size: 1.28rem;
   }
 }
+.site-header {
+  width: min(100% - 32px, var(--max-width));
+  margin: 24px auto 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo {
+  height: 30px;
+  opacity: 0.85;
+  transition: 0.2s ease;
+}
+
+.brand-text {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.brand:hover .logo,
+.brand:hover .brand-text {
+  opacity: 1;
+}
